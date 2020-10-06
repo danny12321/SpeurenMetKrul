@@ -14,6 +14,6 @@ void VariableAssignment::Do() {
 
     Speur& speur = Speur::get_instance();
 
-    speur.SetVariable(_line, speur.GetFromStack(0));
+    speur.SetVariable(_line, speur.GetFromStack(0, true));
     speur.RemoveFromStack(0);
 }

@@ -11,6 +11,7 @@
 #include "../instructions/ValuesAndTypes/VariableAssignment.hpp"
 #include "../instructions/ValuesAndTypes/VariableReference.hpp"
 #include "../instructions/ValuesAndTypes/Digits.hpp"
+#include "../instructions/ValuesAndTypes/LabelDefinition.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>

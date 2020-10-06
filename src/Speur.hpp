@@ -20,6 +20,8 @@ private:
 
     std::map<std::string, std::string> _vars;
 
+    std::map<std::string, int> _labels;
+
     std::vector<std::string> GetInstructions();
 
     void Run(std::vector<std::string>);
@@ -32,12 +34,16 @@ public:
     void AddToStack(std::string line);
 
     void SetVariable(std::string key, std::string value);
+    void SetLabel(std::string key, int value);
+
+    int GetCurrentStackIndex();
 
     std::string GetVariable(std::string key);
+    int GetLabel(std::string key);
 
     void RemoveFromStack(int index);
 
-    std::string GetFromStack(int index);
+    std::string GetFromStack(int index, bool reverse);
 };
 
 #endif //SPEURENMETKRUL_SPEUR_HPP

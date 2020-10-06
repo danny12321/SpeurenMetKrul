@@ -61,7 +61,7 @@ std::vector<std::string> Speur::GetInstructions() {
 }
 
 void Speur::SetVariable(std::string key, std::string value) {
-    std::cout << "SET: " << key << " TO: " << value << std::endl;
+    std::cout << "SET VAR: " << key << " TO: " << value << std::endl;
     _vars[key] = value;
 }
 
@@ -70,10 +70,33 @@ std::string Speur::GetVariable(std::string key) {
     return _vars[key];
 }
 
-std::string Speur::GetFromStack(int index) {
-    return _stack[_stack.size() - 1 - index];
+void Speur::SetLabel(std::string key, int value) {
+    std::cout << "SET Label: " << key << " TO: " << value << " STACK SIZE " << _stack.size() << std::endl;
+    _labels[key] = value;
+}
+
+int Speur::GetLabel(std::string key) {
+    std::cout << "GET Label " << key << ": " << _vars[key] << std::endl;
+    return _labels[key];
+}
+
+std::string Speur::GetFromStack(int index, bool reverse) {
+    if (reverse) {
+        return _stack[_stack.size() - 1 - index];
+    } else {
+        return _stack[index];
+    }
 }
 
 void Speur::RemoveFromStack(int index) {
-    _stack.erase(_stack.begin() + _stack.size() - 1 - index);
+    if(_stack.size() > index) {
+        _stack.erase(_stack.begin() + _stack.size() - 1 - index);
+    }
+}
+
+int Speur::GetCurrentStackIndex() {
+    if(_stack.size() == 0) {
+        return 0;
+    }
+    return _stack.size() - 1;
 }
