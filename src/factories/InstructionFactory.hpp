@@ -14,6 +14,7 @@
 #include "../instructions/ValuesAndTypes/LabelDefinition.hpp"
 #include "../instructions/StringOperations/DupInstruction.hpp"
 #include "../instructions/IntegerOperations/DecInstruction.hpp"
+#include "../instructions/StringOperations/CatInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>
