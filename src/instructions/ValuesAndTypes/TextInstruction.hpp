@@ -6,9 +6,9 @@
 #define SPEURENMETKRUL_TEXTINSTRUCTION_HPP
 
 
+#include "../BaseInstruction.hpp"
 #include <string>
 #include <vector>
-#include "../BaseInstruction.hpp"
 #include <iostream>
 #include "../../Speur.hpp"
 

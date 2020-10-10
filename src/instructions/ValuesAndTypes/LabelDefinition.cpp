@@ -12,5 +12,5 @@ void LabelDefinition::Do() {
     _line.erase(0, 1);
     std::cout << "LabelDefinition instruction: " << _line << std::endl;
 
-    _speur->SetLabel(_line, _speur->GetCurrentStackIndex());
+    _speur->Labels[_line] = _speur->GetCurrentStackIndex();
 }

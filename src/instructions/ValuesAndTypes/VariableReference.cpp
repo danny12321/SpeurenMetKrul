@@ -12,5 +12,5 @@ void VariableReference::Do() {
     _line.erase(0, 1);
     std::cout << "Variable Reference: " << _line << std::endl;
 
-    _speur->AddToStack(_speur->GetVariable(_line));
+    _speur->Stack.push_back(_speur->Vars[_line]);
 }

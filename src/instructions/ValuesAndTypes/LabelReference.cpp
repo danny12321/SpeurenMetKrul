@@ -12,5 +12,5 @@ void LabelReference::Do() {
     _line.erase(0, 1);
     std::cout << "Variable Reference: " << _line << std::endl;
 
-    _speur->AddToStack(_speur->GetFromStack(_speur->GetLabel(_line), false));
+    _speur->Stack.push_back(_speur->GetFromStack(_speur->Labels[_line], true));
 }

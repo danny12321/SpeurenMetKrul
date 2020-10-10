@@ -19,15 +19,7 @@ private:
 public:
     void Init(std::vector<std::string> instructions);
 
-    void AddToStack(std::string line);
-
-    void SetVariable(std::string key, std::string value);
-    void SetLabel(std::string key, int value);
-
     int GetCurrentStackIndex();
-
-    std::string GetVariable(std::string key);
-    int GetLabel(std::string key);
 
     std::string RemoveFromStack(int index);
 

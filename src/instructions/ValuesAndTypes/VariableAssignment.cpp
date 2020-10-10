@@ -12,6 +12,6 @@ void VariableAssignment::Do() {
     _line.erase(0, 1);
     std::cout << "Variable Assignment: " << _line << std::endl;
 
-    _speur->SetVariable(_line, _speur->GetFromStack(0, true));
+    _speur->Vars[_line] = _speur->GetFromStack(0, true);
     _speur->RemoveFromStack(0);
 }
