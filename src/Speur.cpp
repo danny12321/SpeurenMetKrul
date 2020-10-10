@@ -4,35 +4,31 @@
 
 #include "Speur.hpp"
 
-
-Speur Speur::_instance;
-
-void Speur::Init() {
-    auto instructions = GetInstructions();
+void Speur::Init(std::vector<std::string> instructions) {
     // EERST LABELS UITLEZEN
     Run(instructions);
 
     std::cout << "------------------------------" << std::endl;
     std::cout << "VARS" << std::endl;
 
-    for (auto const &imap: _vars)
+    for (auto const &imap: Vars)
         std::cout << imap.first << ": " << imap.second << std::endl;
 
     std::cout << "------------------------------" << std::endl;
     std::cout << "STACK:" << std::endl;
 
-    for (auto const &item: _stack)
+    for (auto const &item: Stack)
         std::cout << item << std::endl;
 }
 
 void Speur::Run(std::vector<std::string> instructions) {
-    InstructionFactory instruction_factory;
+    std::unique_ptr<InstructionFactory> instruction_factory {new InstructionFactory(this)};
     int index = 0;
 
     while (instructions.size() - 1 > index) {
         try {
             std::string line = instructions[index];
-            std::unique_ptr<BaseInstruction> instruction{instruction_factory.GetInstruction(line)};
+            std::unique_ptr<BaseInstruction> instruction{instruction_factory->GetInstruction(line)};
 
             instruction->Do();
             index++;
@@ -44,54 +40,41 @@ void Speur::Run(std::vector<std::string> instructions) {
 }
 
 void Speur::AddToStack(std::string line) {
-    _stack.push_back(line);
-}
-
-std::vector<std::string> Speur::GetInstructions() {
-    std::vector<std::string> instructions;
-    CurlRequest req{};
-    auto res = req.request("https://www.swiftcoder.nl/cpp1/start.txt");
-
-    auto ss = std::stringstream{res};
-    for (std::string line; std::getline(ss, line, '\n');) {
-        instructions.push_back(line);
-    }
-
-    return instructions;
+    Stack.push_back(line);
 }
 
 void Speur::SetVariable(std::string key, std::string value) {
     std::cout << "SET VAR: " << key << " TO: " << value << std::endl;
-    _vars[key] = value;
+    Vars[key] = value;
 }
 
 std::string Speur::GetVariable(std::string key) {
-    std::cout << "GET VAR " << key << ": " << _vars[key] << std::endl;
-    return _vars[key];
+    std::cout << "GET VAR " << key << ": " << Vars[key] << std::endl;
+    return Vars[key];
 }
 
 void Speur::SetLabel(std::string key, int value) {
-    std::cout << "SET Label: " << key << " TO: " << value << " STACK SIZE " << _stack.size() << std::endl;
-    _labels[key] = value;
+    std::cout << "SET Label: " << key << " TO: " << value << " STACK SIZE " << Stack.size() << std::endl;
+    Labels[key] = value;
 }
 
 int Speur::GetLabel(std::string key) {
-    std::cout << "GET Label " << key << ": " << _vars[key] << std::endl;
-    return _labels[key];
+    std::cout << "GET Label " << key << ": " << Vars[key] << std::endl;
+    return Labels[key];
 }
 
 std::string Speur::GetFromStack(int index, bool reverse) {
     if (reverse) {
-        return _stack[_stack.size() - 1 - index];
+        return Stack[Stack.size() - 1 - index];
     } else {
-        return _stack[index];
+        return Stack[index];
     }
 }
 
 std::string Speur::RemoveFromStack(int index) {
-    if(_stack.size() > index) {
-        std::string temp = _stack[ _stack.size() - 1 - index];
-        _stack.erase(_stack.begin() + _stack.size() - 1 - index);
+    if(Stack.size() > index) {
+        std::string temp = Stack[ Stack.size() - 1 - index];
+        Stack.erase(Stack.begin() + Stack.size() - 1 - index);
         return temp;
     } else {
         return "";
@@ -99,8 +82,8 @@ std::string Speur::RemoveFromStack(int index) {
 }
 
 int Speur::GetCurrentStackIndex() {
-    if(_stack.size() == 0) {
+    if(Stack.size() == 0) {
         return 0;
     }
-    return _stack.size() - 1;
+    return Stack.size() - 1;
 }

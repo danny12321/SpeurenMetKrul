@@ -4,7 +4,7 @@
 
 #include "LabelDefinition.hpp"
 
-LabelDefinition::LabelDefinition(std::string line) : BaseInstruction(line) {
+LabelDefinition::LabelDefinition(Speur* speur, std::string line) : BaseInstruction(speur, line) {
 
 }
 
@@ -12,7 +12,5 @@ void LabelDefinition::Do() {
     _line.erase(0, 1);
     std::cout << "LabelDefinition instruction: " << _line << std::endl;
 
-    Speur& speur = Speur::get_instance();
-
-    speur.SetLabel(_line, speur.GetCurrentStackIndex());
+    _speur->SetLabel(_line, _speur->GetCurrentStackIndex());
 }

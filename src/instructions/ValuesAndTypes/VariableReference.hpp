@@ -11,7 +11,7 @@
 
 class VariableReference : public BaseInstruction {
 public:
-    VariableReference(std::string line);
+    VariableReference(Speur* speur, std::string line);
     void Do() override;
 };
 

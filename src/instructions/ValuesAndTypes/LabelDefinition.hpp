@@ -13,7 +13,7 @@
 
 class LabelDefinition : public BaseInstruction {
 public:
-    LabelDefinition(std::string line);
+    LabelDefinition(Speur* speur, std::string line);
     void Do() override;
 };
 

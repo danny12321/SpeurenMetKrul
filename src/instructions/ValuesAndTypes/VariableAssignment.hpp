@@ -12,7 +12,7 @@
 
 class VariableAssignment : public BaseInstruction {
 public:
-    VariableAssignment(std::string line);
+    VariableAssignment(Speur* speur, std::string line);
     void Do() override;
 };
 

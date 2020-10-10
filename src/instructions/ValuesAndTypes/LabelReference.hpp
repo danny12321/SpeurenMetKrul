@@ -12,7 +12,7 @@
 
 class LabelReference : public BaseInstruction {
 public:
-    LabelReference(std::string line);
+    LabelReference(Speur* speur, std::string line);
     void Do() override;
 };
 

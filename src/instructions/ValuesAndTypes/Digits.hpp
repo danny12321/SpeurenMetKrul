@@ -13,7 +13,7 @@
 
 class Digits : public BaseInstruction {
 public:
-    Digits(std::string line);
+    Digits(Speur* speur, std::string line);
     void Do() override;
 };
 

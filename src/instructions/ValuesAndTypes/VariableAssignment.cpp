@@ -4,7 +4,7 @@
 
 #include "VariableAssignment.hpp"
 
-VariableAssignment::VariableAssignment(std::string line) : BaseInstruction(line) {
+VariableAssignment::VariableAssignment(Speur* speur, std::string line) : BaseInstruction(speur, line) {
 
 }
 
@@ -12,8 +12,6 @@ void VariableAssignment::Do() {
     _line.erase(0, 1);
     std::cout << "Variable Assignment: " << _line << std::endl;
 
-    Speur& speur = Speur::get_instance();
-
-    speur.SetVariable(_line, speur.GetFromStack(0, true));
-    speur.RemoveFromStack(0);
+    _speur->SetVariable(_line, _speur->GetFromStack(0, true));
+    _speur->RemoveFromStack(0);
 }

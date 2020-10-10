@@ -5,6 +5,10 @@
 
 #include "InstructionFactory.hpp"
 
+InstructionFactory::InstructionFactory(Speur* speur) {
+    _speur = speur;
+}
+
 bool is_number(const std::string &s) {
     std::string::const_iterator it = s.begin();
     while (it != s.end() && std::isdigit(*it)) ++it;
@@ -13,20 +17,19 @@ bool is_number(const std::string &s) {
 
 BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
     if (instruction[0] == '\\') {
-        return (BaseInstruction *) new TextInstruction(instruction);
+        return (BaseInstruction *) new TextInstruction(_speur, instruction);
     } else if (instruction[0] == '=') {
-        return (BaseInstruction *) new VariableAssignment(instruction);
+        return (BaseInstruction *) new VariableAssignment(_speur, instruction);
     } else if (instruction[0] == '$') {
-        return (BaseInstruction *) new VariableReference(instruction);
+        return (BaseInstruction *) new VariableReference(_speur, instruction);
     } else if (is_number(instruction)) {
-        return (BaseInstruction *) new Digits(instruction);
+        return (BaseInstruction *) new Digits(_speur, instruction);
     } else if (instruction[0] == ':') {
-        return (BaseInstruction *) new LabelDefinition(instruction);
+        return (BaseInstruction *) new LabelDefinition(_speur, instruction);
     }else {
         std::cout << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION";
-        return (BaseInstruction *) new TextInstruction(instruction);
+        return (BaseInstruction *) new TextInstruction(_speur, instruction);
     }
 
     throw std::runtime_error{"I don't know the " + instruction + " instruction"};
 }
-

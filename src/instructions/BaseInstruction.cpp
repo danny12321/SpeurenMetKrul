@@ -4,4 +4,5 @@
 
 #include "BaseInstruction.hpp"
 
-BaseInstruction::BaseInstruction(std::string line) : _line(line) { }
+BaseInstruction::BaseInstruction(Speur* speur, std::string line) : _speur(speur), _line(line) {
+}

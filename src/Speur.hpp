@@ -6,7 +6,6 @@
 #define SPEURENMETKRUL_SPEUR_HPP
 
 #include <string>
-#include <sstream>
 #include <vector>
 #include <map>
 #include "factories/InstructionFactory.hpp"
@@ -14,22 +13,11 @@
 
 class Speur {
 private:
-    static Speur _instance;
-
-    std::vector<std::string> _stack;
-
-    std::map<std::string, std::string> _vars;
-
-    std::map<std::string, int> _labels;
-
-    std::vector<std::string> GetInstructions();
 
     void Run(std::vector<std::string>);
 
 public:
-    static Speur &get_instance() { return _instance; }
-
-    void Init();
+    void Init(std::vector<std::string> instructions);
 
     void AddToStack(std::string line);
 
@@ -44,6 +32,12 @@ public:
     std::string RemoveFromStack(int index);
 
     std::string GetFromStack(int index, bool reverse);
+
+    std::vector<std::string> Stack;
+
+    std::map<std::string, std::string> Vars;
+
+    std::map<std::string, int> Labels;
 };
 
 #endif //SPEURENMETKRUL_SPEUR_HPP

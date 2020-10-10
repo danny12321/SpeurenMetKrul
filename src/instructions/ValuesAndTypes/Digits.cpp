@@ -4,11 +4,11 @@
 
 #include "Digits.hpp"
 
-Digits::Digits(std::string line) : BaseInstruction(line) {
+Digits::Digits(Speur* speur, std::string line) : BaseInstruction(speur, line) {
 
 }
 
 void Digits::Do() {
     std::cout << "Digits instruction: " << _line << std::endl;
-    Speur::get_instance().AddToStack(_line);
+    _speur->AddToStack(_line);
 }

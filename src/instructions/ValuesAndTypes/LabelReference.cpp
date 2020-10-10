@@ -4,7 +4,7 @@
 
 #include "LabelReference.hpp"
 
-LabelReference::LabelReference(std::string line) : BaseInstruction(line) {
+LabelReference::LabelReference(Speur* speur, std::string line) : BaseInstruction(speur, line) {
 
 }
 
@@ -12,7 +12,5 @@ void LabelReference::Do() {
     _line.erase(0, 1);
     std::cout << "Variable Reference: " << _line << std::endl;
 
-    Speur& speur = Speur::get_instance();
-
-    speur.AddToStack(speur.GetFromStack(speur.GetLabel(_line), false));
+    _speur->AddToStack(_speur->GetFromStack(_speur->GetLabel(_line), false));
 }

@@ -16,7 +16,10 @@
 #include <string>
 
 class InstructionFactory {
+private:
+    Speur* _speur;
 public:
+    InstructionFactory(Speur* speur);
     BaseInstruction* GetInstruction(std::string instruction);
 };
 

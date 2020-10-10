@@ -4,7 +4,7 @@
 
 #include "VariableReference.hpp"
 
-VariableReference::VariableReference(std::string line) : BaseInstruction(line) {
+VariableReference::VariableReference(Speur* speur, std::string line) : BaseInstruction(speur, line) {
 
 }
 
@@ -12,7 +12,5 @@ void VariableReference::Do() {
     _line.erase(0, 1);
     std::cout << "Variable Reference: " << _line << std::endl;
 
-    Speur& speur = Speur::get_instance();
-
-    speur.AddToStack(speur.GetVariable(_line));
+    _speur->AddToStack(_speur->GetVariable(_line));
 }
