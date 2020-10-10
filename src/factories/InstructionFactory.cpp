@@ -38,6 +38,8 @@ BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
         return (BaseInstruction *) new CatInstruction(_speur, instruction);
     } else if(instruction == "gne") {
         return (BaseInstruction *) new GNEInstruction(_speur, instruction);
+    } else if(instruction == "geq") {
+        return (BaseInstruction *) new GEQInstruction(_speur, instruction);
     } else {
         std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
         return (BaseInstruction *) new TextInstruction(_speur, instruction);

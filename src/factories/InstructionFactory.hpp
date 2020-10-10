@@ -17,6 +17,7 @@
 #include "../instructions/StringOperations/CatInstruction.hpp"
 #include "../instructions/TestAndJumps/GNEInstruction.hpp"
 #include "../instructions/ValuesAndTypes/LabelReference.hpp"
+#include "../instructions/TestAndJumps/GEQInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>
