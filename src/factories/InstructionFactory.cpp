@@ -28,8 +28,10 @@ BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
         return (BaseInstruction *) new LabelDefinition(_speur, instruction);
     } else if(instruction == "add") {
         return (BaseInstruction *) new AddInstruction(_speur, instruction);
-    }else {
-        std::cout << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION";
+    } else if(instruction == "dup") {
+        return (BaseInstruction *) new DupInstruction(_speur, instruction);
+    } else {
+        std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
         return (BaseInstruction *) new TextInstruction(_speur, instruction);
     }
 
