@@ -26,6 +26,8 @@ BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
         return (BaseInstruction *) new Digits(_speur, instruction);
     } else if (instruction[0] == ':') {
         return (BaseInstruction *) new LabelDefinition(_speur, instruction);
+    }else if (instruction[0] == '>') {
+        return (BaseInstruction *) new LabelReference(_speur, instruction);
     } else if(instruction == "add") {
         return (BaseInstruction *) new AddInstruction(_speur, instruction);
     } else if(instruction == "dup") {
@@ -34,6 +36,8 @@ BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
         return (BaseInstruction *) new DecInstruction(_speur, instruction);
     } else if(instruction == "cat") {
         return (BaseInstruction *) new CatInstruction(_speur, instruction);
+    } else if(instruction == "gne") {
+        return (BaseInstruction *) new GNEInstruction(_speur, instruction);
     } else {
         std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
         return (BaseInstruction *) new TextInstruction(_speur, instruction);

@@ -15,6 +15,8 @@
 #include "../instructions/StringOperations/DupInstruction.hpp"
 #include "../instructions/IntegerOperations/DecInstruction.hpp"
 #include "../instructions/StringOperations/CatInstruction.hpp"
+#include "../instructions/TestAndJumps/GNEInstruction.hpp"
+#include "../instructions/ValuesAndTypes/LabelReference.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>

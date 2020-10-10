@@ -9,8 +9,7 @@ LabelDefinition::LabelDefinition(Speur* speur, std::string line) : BaseInstructi
 }
 
 void LabelDefinition::Do() {
-    _line.erase(0, 1);
     std::cout << "LabelDefinition instruction: " << _line << std::endl;
-
-    _speur->Labels[_line] = _speur->GetCurrentStackIndex();
+    _line.erase(0, 1);
+    _speur->Labels[_line] = _speur->InstructionIndex + 1;
 }

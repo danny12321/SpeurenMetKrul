@@ -51,9 +51,9 @@ std::string CurlRequest::request(const std::string& url) {
 }
 
 
-std::vector<std::string> CurlRequest::GetInstructions() {
+std::vector<std::string> CurlRequest::GetInstructions(std::string url) {
     std::vector<std::string> instructions;
-    auto res = request("https://www.swiftcoder.nl/cpp1/start.txt");
+    auto res = request(url);
 
     auto ss = std::stringstream{res};
     for (std::string line; std::getline(ss, line, '\n');) {

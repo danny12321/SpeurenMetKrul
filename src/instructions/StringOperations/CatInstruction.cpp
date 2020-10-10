@@ -13,5 +13,5 @@ void CatInstruction::Do() {
     std::string val1 = _speur->RemoveFromStack(0);
     std::string val2 = _speur->RemoveFromStack(0);
 
-    _speur->Stack.push_back(val1 + val2);
+    _speur->Stack.push_back(val2 + val1);
 }

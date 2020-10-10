@@ -4,10 +4,15 @@
 
 #include "Speur.hpp"
 
-void Speur::Init(std::vector<std::string> instructions) {
-    // EERST LABELS UITLEZEN
-    Run(instructions);
+void Speur::Init(std::string url) {
+    std::cout << "Loading " << url;
 
+    CurlRequest req;
+    auto instructions = req.GetInstructions(url);
+    Run(instructions);
+}
+
+void Speur::Print() {
     std::cout << "------------------------------" << std::endl;
     std::cout << "VARS" << std::endl;
 
@@ -15,28 +20,43 @@ void Speur::Init(std::vector<std::string> instructions) {
         std::cout << imap.first << ": " << imap.second << std::endl;
 
     std::cout << "------------------------------" << std::endl;
+    std::cout << "Labels" << std::endl;
+
+    for (auto const &imap: Labels)
+        std::cout << imap.first << ": " << imap.second << std::endl;
+
+    std::cout << "------------------------------" << std::endl;
     std::cout << "STACK:" << std::endl;
 
     for (auto const &item: Stack)
         std::cout << item << std::endl;
+
+    std::cout << "\n\n\n\n" << std::endl;
 }
 
 void Speur::Run(std::vector<std::string> instructions) {
     std::unique_ptr<InstructionFactory> instruction_factory {new InstructionFactory(this)};
-    int index = 0;
 
-    while (instructions.size() > index) {
+    while (instructions.size() > InstructionIndex) {
         try {
-            std::string line = instructions[index];
+            std::string line = instructions[InstructionIndex];
             std::unique_ptr<BaseInstruction> instruction{instruction_factory->GetInstruction(line)};
 
             instruction->Do();
-            index++;
+            InstructionIndex++;
         } catch (const std::exception &err) {
             std::cerr << err.what() << std::endl;
-            index++;
+            InstructionIndex++;
         }
+
+        Print();
     }
+
+    std::string url = baseurl + GetFromStack(0, true);
+    std::cout << "Found url:  " << url << std::endl;
+    system("pause");
+    Speur speur;
+    speur.Init(url);
 }
 
 std::string Speur::GetFromStack(int index, bool reverse) {
@@ -49,7 +69,7 @@ std::string Speur::GetFromStack(int index, bool reverse) {
 
 std::string Speur::RemoveFromStack(int index_from_last) {
     if(Stack.size() > index_from_last) {
-        std::string temp = Stack[ Stack.size() - 1 - index_from_last];
+        std::string temp = Stack[Stack.size() - 1 - index_from_last];
         Stack.erase(Stack.begin() + Stack.size() - 1 - index_from_last);
         return temp;
     } else {

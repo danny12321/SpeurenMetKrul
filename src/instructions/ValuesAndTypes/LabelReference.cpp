@@ -10,7 +10,7 @@ LabelReference::LabelReference(Speur* speur, std::string line) : BaseInstruction
 
 void LabelReference::Do() {
     _line.erase(0, 1);
-    std::cout << "Variable Reference: " << _line << std::endl;
+    std::cout << "Label Reference: " << _line << std::endl;
 
-    _speur->Stack.push_back(_speur->GetFromStack(_speur->Labels[_line], true));
+    _speur->Stack.push_back(std::to_string(_speur->Labels[_line] - 1));
 }
