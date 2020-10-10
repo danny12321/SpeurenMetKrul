@@ -25,7 +25,7 @@ void Speur::Run(std::vector<std::string> instructions) {
     std::unique_ptr<InstructionFactory> instruction_factory {new InstructionFactory(this)};
     int index = 0;
 
-    while (instructions.size() - 1 > index) {
+    while (instructions.size() > index) {
         try {
             std::string line = instructions[index];
             std::unique_ptr<BaseInstruction> instruction{instruction_factory->GetInstruction(line)};

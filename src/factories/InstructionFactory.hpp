@@ -6,6 +6,7 @@
 
 
 #include "../instructions/BaseInstruction.hpp"
+#include "../instructions/IntegerOperations/AddInstruction.hpp"
 #include "../instructions/ValuesAndTypes/TextInstruction.hpp"
 #include "../instructions/ValuesAndTypes/VariableAssignment.hpp"
 #include "../instructions/ValuesAndTypes/VariableReference.hpp"
