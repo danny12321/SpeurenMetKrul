@@ -41,7 +41,7 @@ public:
     std::string GetVariable(std::string key);
     int GetLabel(std::string key);
 
-    void RemoveFromStack(int index);
+    std::string RemoveFromStack(int index);
 
     std::string GetFromStack(int index, bool reverse);
 };

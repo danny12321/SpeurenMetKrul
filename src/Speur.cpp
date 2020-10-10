@@ -88,9 +88,13 @@ std::string Speur::GetFromStack(int index, bool reverse) {
     }
 }
 
-void Speur::RemoveFromStack(int index) {
+std::string Speur::RemoveFromStack(int index) {
     if(_stack.size() > index) {
+        std::string temp = _stack[ _stack.size() - 1 - index];
         _stack.erase(_stack.begin() + _stack.size() - 1 - index);
+        return temp;
+    } else {
+        return "";
     }
 }
 

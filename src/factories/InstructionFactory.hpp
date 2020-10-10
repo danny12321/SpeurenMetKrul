@@ -5,7 +5,6 @@
 #define SPEURENMETKRUL_INSTRUCTIONFACTORY_HPP
 
 
-#include "../Speur.hpp"
 #include "../instructions/BaseInstruction.hpp"
 #include "../instructions/ValuesAndTypes/TextInstruction.hpp"
 #include "../instructions/ValuesAndTypes/VariableAssignment.hpp"
