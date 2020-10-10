@@ -30,6 +30,8 @@ BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
         return (BaseInstruction *) new AddInstruction(_speur, instruction);
     } else if(instruction == "dup") {
         return (BaseInstruction *) new DupInstruction(_speur, instruction);
+    } else if(instruction == "dec") {
+        return (BaseInstruction *) new DecInstruction(_speur, instruction);
     } else {
         std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
         return (BaseInstruction *) new TextInstruction(_speur, instruction);

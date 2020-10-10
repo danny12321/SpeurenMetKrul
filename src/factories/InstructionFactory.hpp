@@ -13,6 +13,7 @@
 #include "../instructions/ValuesAndTypes/Digits.hpp"
 #include "../instructions/ValuesAndTypes/LabelDefinition.hpp"
 #include "../instructions/StringOperations/DupInstruction.hpp"
+#include "../instructions/IntegerOperations/DecInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>

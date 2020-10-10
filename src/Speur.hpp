@@ -21,7 +21,7 @@ public:
 
     int GetCurrentStackIndex();
 
-    std::string RemoveFromStack(int index);
+    std::string RemoveFromStack(int index_from_last);
 
     std::string GetFromStack(int index, bool reverse);
 

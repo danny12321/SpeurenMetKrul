@@ -47,10 +47,10 @@ std::string Speur::GetFromStack(int index, bool reverse) {
     }
 }
 
-std::string Speur::RemoveFromStack(int index) {
-    if(Stack.size() > index) {
-        std::string temp = Stack[ Stack.size() - 1 - index];
-        Stack.erase(Stack.begin() + Stack.size() - 1 - index);
+std::string Speur::RemoveFromStack(int index_from_last) {
+    if(Stack.size() > index_from_last) {
+        std::string temp = Stack[ Stack.size() - 1 - index_from_last];
+        Stack.erase(Stack.begin() + Stack.size() - 1 - index_from_last);
         return temp;
     } else {
         return "";
@@ -61,5 +61,6 @@ int Speur::GetCurrentStackIndex() {
     if(Stack.size() == 0) {
         return 0;
     }
+
     return Stack.size() - 1;
 }
