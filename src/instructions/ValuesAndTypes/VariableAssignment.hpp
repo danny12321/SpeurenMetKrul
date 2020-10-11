@@ -13,6 +13,7 @@
 class VariableAssignment : public BaseInstruction {
 public:
     VariableAssignment(Speur* speur, std::string line);
+    void Prepare() override {};
     void Do() override;
 };
 

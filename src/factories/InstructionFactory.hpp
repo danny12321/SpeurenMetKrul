@@ -18,6 +18,7 @@
 #include "../instructions/TestAndJumps/GNEInstruction.hpp"
 #include "../instructions/ValuesAndTypes/LabelReference.hpp"
 #include "../instructions/TestAndJumps/GEQInstruction.hpp"
+#include "../instructions/TestAndJumps/GTOInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>

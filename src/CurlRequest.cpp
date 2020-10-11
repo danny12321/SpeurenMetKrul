@@ -50,10 +50,87 @@ std::string CurlRequest::request(const std::string& url) {
     return result;
 }
 
-
 std::vector<std::string> CurlRequest::GetInstructions(std::string url) {
     std::vector<std::string> instructions;
     auto res = request(url);
+
+    auto ss = std::stringstream{res};
+    for (std::string line; std::getline(ss, line, '\n');) {
+        instructions.push_back(line);
+    }
+
+    return instructions;
+}
+
+std::vector<std::string> CurlRequest::Test() {
+    std::vector<std::string> instructions;
+    auto res = ">main\n"
+               "gto\n"
+               ":gcd\n"
+               "=v\n"
+               "=u\n"
+               "$u\n"
+               "$v\n"
+               ">gcd-loop\n"
+               "gge\n"
+               "$u\n"
+               "=t\n"
+               "$v\n"
+               "=u\n"
+               "$t\n"
+               "=v\n"
+               ":gcd-loop\n"
+               "$v\n"
+               "0\n"
+               ">gcd-ret\n"
+               "gle\n"
+               "$v\n"
+               "=t\n"
+               "$u\n"
+               "$v\n"
+               "mod\n"
+               "=v\n"
+               "$t\n"
+               "=u\n"
+               ">gcd-loop\n"
+               "gto\n"
+               ":gcd-ret\n"
+               "$u\n"
+               "ret\n"
+               ":lcm\n"
+               "=b\n"
+               "=a\n"
+               "$a\n"
+               "$a\n"
+               "$b\n"
+               ">gcd\n"
+               "fun\n"
+               "div\n"
+               "$b\n"
+               "mul\n"
+               "ret\n"
+               ":main\n"
+               "214\n"
+               "68\n"
+               ">lcm\n"
+               "fun\n"
+               "\\-\n"
+               "cat\n"
+               "765\n"
+               "27\n"
+               ">gcd\n"
+               "fun\n"
+               "cat\n"
+               "\\-\n"
+               "cat\n"
+               "56\n"
+               "78\n"
+               ">lcm\n"
+               "fun\n"
+               "cat\n"
+               "rev\n"
+               "\\.txt\n"
+               "cat";
 
     auto ss = std::stringstream{res};
     for (std::string line; std::getline(ss, line, '\n');) {

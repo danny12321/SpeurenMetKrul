@@ -11,6 +11,7 @@
 class GNEInstruction : public BaseInstruction {
 public:
     GNEInstruction(Speur* speur, std::string line);
+    void Prepare() override {};
     void Do() override;
 };
 

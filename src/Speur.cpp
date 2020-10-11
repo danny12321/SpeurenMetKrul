@@ -5,7 +5,7 @@
 #include "Speur.hpp"
 
 void Speur::Init(std::string url) {
-    std::cout << "Loading " << url;
+    std::cout << "Loading " << url << std::endl;
 
     CurlRequest req;
     auto instructions = req.GetInstructions(url);
@@ -36,6 +36,25 @@ void Speur::Print() {
 
 void Speur::Run(std::vector<std::string> instructions) {
     std::unique_ptr<InstructionFactory> instruction_factory {new InstructionFactory(this)};
+    InstructionIndex = 0;
+
+    while (instructions.size() > InstructionIndex) {
+        try {
+            std::string line = instructions[InstructionIndex];
+            std::unique_ptr<BaseInstruction> instruction{instruction_factory->GetInstruction(line)};
+
+            std::cout << "Prepare: " << std::endl;
+            instruction->Prepare();
+            InstructionIndex++;
+        } catch (const std::exception &err) {
+            std::cerr << err.what() << std::endl;
+            InstructionIndex++;
+        }
+    }
+
+    std::cout << "\n\n\n";
+
+    InstructionIndex = 0;
 
     while (instructions.size() > InstructionIndex) {
         try {

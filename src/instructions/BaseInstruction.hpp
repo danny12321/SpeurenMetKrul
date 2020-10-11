@@ -14,6 +14,7 @@ protected:
     Speur* _speur;
 public:
     BaseInstruction(Speur* speur, std::string line);
+    virtual void Prepare() = 0;
     virtual void Do() = 0;
 };
 

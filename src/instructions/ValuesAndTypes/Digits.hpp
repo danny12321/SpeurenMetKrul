@@ -14,6 +14,7 @@
 class Digits : public BaseInstruction {
 public:
     Digits(Speur* speur, std::string line);
+    void Prepare() override {};
     void Do() override;
 };
 
