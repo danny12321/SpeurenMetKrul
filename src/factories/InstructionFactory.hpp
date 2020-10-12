@@ -19,6 +19,10 @@
 #include "../instructions/ValuesAndTypes/LabelReference.hpp"
 #include "../instructions/TestAndJumps/GEQInstruction.hpp"
 #include "../instructions/TestAndJumps/GTOInstruction.hpp"
+#include "../instructions/TestAndJumps/GGTInstruction.hpp"
+#include "../instructions/TestAndJumps/GGEInstruction.hpp"
+#include "../instructions/TestAndJumps/GLEInstruction.hpp"
+#include "../instructions/TestAndJumps/GLTInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>

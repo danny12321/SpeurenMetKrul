@@ -42,6 +42,14 @@ BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
         return (BaseInstruction *) new GEQInstruction(_speur, instruction);
     }  else if(instruction == "gto") {
         return (BaseInstruction *) new GTOInstruction(_speur, instruction);
+    } else if(instruction == "gge") {
+        return (BaseInstruction *) new GGEInstruction(_speur, instruction);
+    } else if(instruction == "ggt") {
+        return (BaseInstruction *) new GGTInstruction(_speur, instruction);
+    } else if(instruction == "gle") {
+        return (BaseInstruction *) new GLEInstruction(_speur, instruction);
+    } else if(instruction == "glt") {
+        return (BaseInstruction *) new GLTInstruction(_speur, instruction);
     } else {
         std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
         return (BaseInstruction *) new TextInstruction(_speur, instruction);
