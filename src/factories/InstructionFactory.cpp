@@ -56,6 +56,8 @@ BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
         return (BaseInstruction *) new DivInstruction(_speur, instruction);
     } else if(instruction == "mul") {
         return (BaseInstruction *) new MulInstruction(_speur, instruction);
+    } else if(instruction == "rev") {
+        return (BaseInstruction *) new RevInstruction(_speur, instruction);
     } else {
         std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
         return (BaseInstruction *) new TextInstruction(_speur, instruction);

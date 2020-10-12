@@ -26,6 +26,7 @@
 #include "../instructions/IntegerOperations/ModInstruction.hpp"
 #include "../instructions/IntegerOperations/DivInstruction.hpp"
 #include "../instructions/IntegerOperations/MulInstruction.hpp"
+#include "../instructions/StringOperations/RevInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>
