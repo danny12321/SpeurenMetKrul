@@ -23,6 +23,7 @@
 #include "../instructions/TestAndJumps/GGEInstruction.hpp"
 #include "../instructions/TestAndJumps/GLEInstruction.hpp"
 #include "../instructions/TestAndJumps/GLTInstruction.hpp"
+#include "../instructions/IntegerOperations/ModInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>
