@@ -25,6 +25,7 @@
 #include "../instructions/TestAndJumps/GLTInstruction.hpp"
 #include "../instructions/IntegerOperations/ModInstruction.hpp"
 #include "../instructions/IntegerOperations/DivInstruction.hpp"
+#include "../instructions/IntegerOperations/MulInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>
