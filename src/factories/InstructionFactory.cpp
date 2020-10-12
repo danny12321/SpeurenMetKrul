@@ -52,6 +52,8 @@ BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
         return (BaseInstruction *) new GLTInstruction(_speur, instruction);
     } else if(instruction == "mod") {
         return (BaseInstruction *) new ModInstruction(_speur, instruction);
+    } else if(instruction == "div") {
+        return (BaseInstruction *) new DivInstruction(_speur, instruction);
     } else {
         std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
         return (BaseInstruction *) new TextInstruction(_speur, instruction);
