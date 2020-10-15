@@ -30,6 +30,8 @@ public:
 
     std::vector<std::string> Stack;
 
+    std::vector<int> CallStack;
+
     std::map<std::string, std::string> Vars;
 
     std::map<std::string, int> Labels;

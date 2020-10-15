@@ -10,8 +10,10 @@
 
 class DecInstruction : public BaseInstruction {
 public:
-    DecInstruction(Speur* speur, std::string line);
+    DecInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
 

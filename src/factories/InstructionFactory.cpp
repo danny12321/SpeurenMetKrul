@@ -5,7 +5,7 @@
 
 #include "InstructionFactory.hpp"
 
-InstructionFactory::InstructionFactory(Speur* speur) {
+InstructionFactory::InstructionFactory(Speur *speur) {
     _speur = speur;
 }
 
@@ -16,52 +16,30 @@ bool is_number(const std::string &s) {
 }
 
 BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
-    if (instruction[0] == '\\') {
-        return (BaseInstruction *) new TextInstruction(_speur, instruction);
-    } else if (instruction[0] == '=') {
-        return (BaseInstruction *) new VariableAssignment(_speur, instruction);
-    } else if (instruction[0] == '$') {
-        return (BaseInstruction *) new VariableReference(_speur, instruction);
-    } else if (is_number(instruction)) {
-        return (BaseInstruction *) new Digits(_speur, instruction);
-    } else if (instruction[0] == ':') {
-        return (BaseInstruction *) new LabelDefinition(_speur, instruction);
-    }else if (instruction[0] == '>') {
-        return (BaseInstruction *) new LabelReference(_speur, instruction);
-    } else if(instruction == "add") {
-        return (BaseInstruction *) new AddInstruction(_speur, instruction);
-    } else if(instruction == "dup") {
-        return (BaseInstruction *) new DupInstruction(_speur, instruction);
-    } else if(instruction == "dec") {
-        return (BaseInstruction *) new DecInstruction(_speur, instruction);
-    } else if(instruction == "cat") {
-        return (BaseInstruction *) new CatInstruction(_speur, instruction);
-    } else if(instruction == "gne") {
-        return (BaseInstruction *) new GNEInstruction(_speur, instruction);
-    } else if(instruction == "geq") {
-        return (BaseInstruction *) new GEQInstruction(_speur, instruction);
-    }  else if(instruction == "gto") {
-        return (BaseInstruction *) new GTOInstruction(_speur, instruction);
-    } else if(instruction == "gge") {
-        return (BaseInstruction *) new GGEInstruction(_speur, instruction);
-    } else if(instruction == "ggt") {
-        return (BaseInstruction *) new GGTInstruction(_speur, instruction);
-    } else if(instruction == "gle") {
-        return (BaseInstruction *) new GLEInstruction(_speur, instruction);
-    } else if(instruction == "glt") {
-        return (BaseInstruction *) new GLTInstruction(_speur, instruction);
-    } else if(instruction == "mod") {
-        return (BaseInstruction *) new ModInstruction(_speur, instruction);
-    } else if(instruction == "div") {
-        return (BaseInstruction *) new DivInstruction(_speur, instruction);
-    } else if(instruction == "mul") {
-        return (BaseInstruction *) new MulInstruction(_speur, instruction);
-    } else if(instruction == "rev") {
-        return (BaseInstruction *) new RevInstruction(_speur, instruction);
-    } else {
-        std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
-        return (BaseInstruction *) new TextInstruction(_speur, instruction);
-    }
+    if (instruction[0] == '\\') return new TextInstruction(_speur, instruction);
+    if (instruction[0] == '=')  return new VariableAssignment(_speur, instruction);
+    if (instruction[0] == '$')  return new VariableReference(_speur, instruction);
+    if (is_number(instruction)) return new Digits(_speur, instruction);
+    if (instruction[0] == ':')  return new LabelDefinition(_speur, instruction);
+    if (instruction[0] == '>')  return new LabelReference(_speur, instruction);
+    if (instruction == "add")   return new AddInstruction(_speur, instruction);
+    if (instruction == "dup")   return new DupInstruction(_speur, instruction);
+    if (instruction == "dec")   return new DecInstruction(_speur, instruction);
+    if (instruction == "cat")   return new CatInstruction(_speur, instruction);
+    if (instruction == "gne")   return new GNEInstruction(_speur, instruction);
+    if (instruction == "geq")   return new GEQInstruction(_speur, instruction);
+    if (instruction == "gto")   return new GTOInstruction(_speur, instruction);
+    if (instruction == "gge")   return new GGEInstruction(_speur, instruction);
+    if (instruction == "ggt")   return new GGTInstruction(_speur, instruction);
+    if (instruction == "gle")   return new GLEInstruction(_speur, instruction);
+    if (instruction == "glt")   return new GLTInstruction(_speur, instruction);
+    if (instruction == "mod")   return new ModInstruction(_speur, instruction);
+    if (instruction == "div")   return new DivInstruction(_speur, instruction);
+    if (instruction == "mul")   return new MulInstruction(_speur, instruction);
+    if (instruction == "rev")   return new RevInstruction(_speur, instruction);
+    if (instruction == "fun")   return new FunInstruction(_speur, instruction);
+    if (instruction == "ret")   return new RetInstruction(_speur, instruction);
 
-    throw std::runtime_error{"I don't know the " + instruction + " instruction"};
+    std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
+    return new TextInstruction(_speur, "\\" + instruction);
 }

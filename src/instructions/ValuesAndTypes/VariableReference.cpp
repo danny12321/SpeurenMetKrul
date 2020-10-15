@@ -4,7 +4,7 @@
 
 #include "VariableReference.hpp"
 
-VariableReference::VariableReference(Speur* speur, std::string line) : BaseInstruction(speur, line) {
+VariableReference::VariableReference(Speur *speur, std::string line) : BaseInstruction(speur, line) {
 
 }
 

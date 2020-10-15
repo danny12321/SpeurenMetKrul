@@ -10,5 +10,5 @@ DupInstruction::DupInstruction(Speur *speur, std::string line) : BaseInstruction
 
 void DupInstruction::Do() {
     std::cout << "Dub instruction: " << std::endl;
-    _speur->Stack.push_back(_speur->GetFromStack(0,1));
+    _speur->Stack.push_back(_speur->GetFromStack(0, 1));
 }

@@ -10,8 +10,10 @@
 
 class CatInstruction : public BaseInstruction {
 public:
-    CatInstruction(Speur* speur, std::string line);
+    CatInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
 

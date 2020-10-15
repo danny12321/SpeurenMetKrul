@@ -4,7 +4,7 @@
 
 #include "TextInstruction.hpp"
 
-TextInstruction::TextInstruction(Speur* speur, std::string line) : BaseInstruction(speur, line) {
+TextInstruction::TextInstruction(Speur *speur, std::string line) : BaseInstruction(speur, line) {
 
 }
 

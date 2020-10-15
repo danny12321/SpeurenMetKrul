@@ -15,7 +15,7 @@ class CurlRequest {
 private:
 
 public:
-    std::string request(const std::string& url);
+    std::string request(const std::string &url);
 
     std::vector<std::string> GetInstructions(std::string url);
 

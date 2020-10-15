@@ -27,16 +27,19 @@
 #include "../instructions/IntegerOperations/DivInstruction.hpp"
 #include "../instructions/IntegerOperations/MulInstruction.hpp"
 #include "../instructions/StringOperations/RevInstruction.hpp"
+#include "../instructions/Functions/FunInstruction.hpp"
+#include "../instructions/Functions/RetInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>
 
 class InstructionFactory {
 private:
-    Speur* _speur;
+    Speur *_speur;
 public:
-    InstructionFactory(Speur* speur);
-    BaseInstruction* GetInstruction(std::string instruction);
+    InstructionFactory(Speur *speur);
+
+    BaseInstruction *GetInstruction(std::string instruction);
 };
 
 

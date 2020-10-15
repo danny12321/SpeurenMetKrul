@@ -10,8 +10,10 @@
 
 class MulInstruction : public BaseInstruction {
 public:
-    MulInstruction(Speur* speur, std::string line);
+    MulInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
 

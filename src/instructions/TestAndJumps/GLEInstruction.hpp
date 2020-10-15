@@ -10,8 +10,10 @@
 
 class GLEInstruction : public BaseInstruction {
 public:
-    GLEInstruction(Speur* speur, std::string line);
+    GLEInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
 

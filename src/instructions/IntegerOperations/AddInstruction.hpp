@@ -10,8 +10,10 @@
 
 class AddInstruction : public BaseInstruction {
 public:
-    AddInstruction(Speur* speur, std::string line);
+    AddInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
 

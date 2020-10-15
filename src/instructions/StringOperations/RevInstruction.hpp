@@ -10,8 +10,10 @@
 
 class RevInstruction : public BaseInstruction {
 public:
-    RevInstruction(Speur* speur, std::string line);
+    RevInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
 

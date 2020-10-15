@@ -10,11 +10,12 @@
 
 class GLTInstruction : public BaseInstruction {
 public:
-    GLTInstruction(Speur* speur, std::string line);
+    GLTInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
-
 
 
 #endif //SPEURENMETKRUL_GLTINSTRUCTION_HPP

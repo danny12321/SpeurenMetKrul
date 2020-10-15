@@ -4,7 +4,7 @@
 
 #include "LabelReference.hpp"
 
-LabelReference::LabelReference(Speur* speur, std::string line) : BaseInstruction(speur, line) {
+LabelReference::LabelReference(Speur *speur, std::string line) : BaseInstruction(speur, line) {
 
 }
 
@@ -13,6 +13,6 @@ void LabelReference::Do() {
     std::cout << "Label Reference: " << _line << std::endl;
 
     if (_speur->Labels.find(_line) != _speur->Labels.end()) {
-        _speur->Stack.push_back(std::to_string(_speur->Labels[_line] - 1));
+        _speur->Stack.push_back(std::to_string(_speur->Labels[_line]));
     }
 }

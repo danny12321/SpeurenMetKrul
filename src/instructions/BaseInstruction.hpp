@@ -6,15 +6,18 @@
 #define SPEURENMETKRUL_BASEINSTRUCTION_HPP
 
 #include <string>
+
 class Speur;
 
 class BaseInstruction {
 protected:
     std::string _line;
-    Speur* _speur;
+    Speur *_speur;
 public:
-    BaseInstruction(Speur* speur, std::string line);
+    BaseInstruction(Speur *speur, std::string line);
+
     virtual void Prepare() = 0;
+
     virtual void Do() = 0;
 };
 

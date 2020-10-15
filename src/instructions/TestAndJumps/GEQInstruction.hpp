@@ -10,8 +10,10 @@
 
 class GEQInstruction : public BaseInstruction {
 public:
-    GEQInstruction(Speur* speur, std::string line);
+    GEQInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
 

@@ -10,8 +10,6 @@ DecInstruction::DecInstruction(Speur *speur, std::string line) : BaseInstruction
 
 void DecInstruction::Do() {
     std::cout << "Dec instruction: " << std::endl;
-    int val = stoi(_speur->RemoveFromStack(0));
-    std::cout << val << std::endl;
-    val--;
+    int val = stoi(_speur->RemoveFromStack(0)) - 1;
     _speur->Stack.push_back(std::to_string(val));
 }

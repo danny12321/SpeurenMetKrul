@@ -10,8 +10,10 @@
 
 class ModInstruction : public BaseInstruction {
 public:
-    ModInstruction(Speur* speur, std::string line);
+    ModInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
 

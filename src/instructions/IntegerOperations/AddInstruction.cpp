@@ -13,7 +13,7 @@ void AddInstruction::Do() {
 
     int index = _speur->GetCurrentStackIndex();
     int val1 = stoi(_speur->RemoveFromStack(index));
-    int val2 = stoi(_speur->RemoveFromStack(index -1));
+    int val2 = stoi(_speur->RemoveFromStack(index - 1));
 
 
     _speur->Stack.push_back(std::to_string(val1 + val2));

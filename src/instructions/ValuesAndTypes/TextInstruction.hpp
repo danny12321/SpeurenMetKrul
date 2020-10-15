@@ -14,8 +14,10 @@
 
 class TextInstruction : public BaseInstruction {
 public:
-    TextInstruction(Speur* speur, std::string line);
+    TextInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
 

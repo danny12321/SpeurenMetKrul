@@ -10,8 +10,10 @@
 
 class GTOInstruction : public BaseInstruction {
 public:
-    GTOInstruction(Speur* speur, std::string line);
+    GTOInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
 

@@ -11,11 +11,12 @@
 
 class DivInstruction : public BaseInstruction {
 public:
-    DivInstruction(Speur* speur, std::string line);
+    DivInstruction(Speur *speur, std::string line);
+
     void Prepare() override {};
+
     void Do() override;
 };
-
 
 
 #endif //SPEURENMETKRUL_DIVINSTRUCTION_HPP

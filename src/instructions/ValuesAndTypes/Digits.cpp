@@ -4,7 +4,7 @@
 
 #include "Digits.hpp"
 
-Digits::Digits(Speur* speur, std::string line) : BaseInstruction(speur, line) {
+Digits::Digits(Speur *speur, std::string line) : BaseInstruction(speur, line) {
 
 }
 
