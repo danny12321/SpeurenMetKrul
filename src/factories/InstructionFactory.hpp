@@ -31,6 +31,7 @@
 #include "../instructions/Functions/RetInstruction.hpp"
 #include "../instructions/StringOperations/IDXInstruction.hpp"
 #include "../instructions/StringOperations/LenInstruction.hpp"
+#include "../instructions/StringOperations/SLCInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>
