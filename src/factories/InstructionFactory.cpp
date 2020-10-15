@@ -39,6 +39,7 @@ BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
     if (instruction == "rev")   return new RevInstruction(_speur, instruction);
     if (instruction == "fun")   return new FunInstruction(_speur, instruction);
     if (instruction == "ret")   return new RetInstruction(_speur, instruction);
+    if (instruction == "idx")   return new IDXInstruction(_speur, instruction);
 
     std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
     return new TextInstruction(_speur, "\\" + instruction);

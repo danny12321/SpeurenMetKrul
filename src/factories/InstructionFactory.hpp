@@ -29,6 +29,7 @@
 #include "../instructions/StringOperations/RevInstruction.hpp"
 #include "../instructions/Functions/FunInstruction.hpp"
 #include "../instructions/Functions/RetInstruction.hpp"
+#include "../instructions/StringOperations/IDXInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>

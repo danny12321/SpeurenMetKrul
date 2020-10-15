@@ -1,0 +1,18 @@
+//
+// Created by Danny on 15-10-2020.
+//
+
+#include "IDXInstruction.hpp"
+
+IDXInstruction::IDXInstruction(Speur *speur, std::string line) : BaseInstruction(speur, line) {
+
+}
+
+void IDXInstruction::Do() {
+    std::cout << "IDX instruction: " << std::endl;
+    std::string string = _speur->RemoveFromStack(0);
+    int index = stoi(_speur->RemoveFromStack(0));
+    std::string character = std::string(1, string[index]);
+
+    _speur->Stack.push_back(character);
+}
