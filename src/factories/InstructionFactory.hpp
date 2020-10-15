@@ -32,6 +32,7 @@
 #include "../instructions/StringOperations/IDXInstruction.hpp"
 #include "../instructions/StringOperations/LenInstruction.hpp"
 #include "../instructions/StringOperations/SLCInstruction.hpp"
+#include "../instructions/IntegerOperations/IncInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>
