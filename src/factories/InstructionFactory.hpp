@@ -30,6 +30,7 @@
 #include "../instructions/Functions/FunInstruction.hpp"
 #include "../instructions/Functions/RetInstruction.hpp"
 #include "../instructions/StringOperations/IDXInstruction.hpp"
+#include "../instructions/StringOperations/LenInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>

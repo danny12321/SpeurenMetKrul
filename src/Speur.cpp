@@ -35,7 +35,7 @@ void Speur::Print() {
     std::cout << "STACK:" << std::endl;
 
     for (auto const &item: Stack)
-        std::cout << item << std::endl;
+        std::cout << "> " << item << std::endl;
 
 }
 
