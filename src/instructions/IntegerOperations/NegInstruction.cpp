@@ -9,8 +9,7 @@ NegInstruction::NegInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void NegInstruction::Do() {
-    std::cout << "Neg instruction: " << std::endl;
     int val = stoi(_speur->RemoveFromStack(0));
-    val = val * -1;
+    val = -val;
     _speur->Stack.push_back(std::to_string(val));
 }

@@ -13,7 +13,6 @@ void LabelDefinition::Do() {
 }
 
 void LabelDefinition::Prepare() {
-    std::cout << "LabelDefinition instruction: " << _line << std::endl;
     _line.erase(0, 1);
     _speur->Labels[_line] = _speur->InstructionIndex;
 }

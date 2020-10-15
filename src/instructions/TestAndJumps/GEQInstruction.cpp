@@ -9,13 +9,11 @@ GEQInstruction::GEQInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void GEQInstruction::Do() {
-    std::cout << "GEQ instruction: " << _line << std::endl;
     int label = stoi(_speur->RemoveFromStack(0));
     std::string val1 = _speur->RemoveFromStack(0);
     std::string val2 = _speur->RemoveFromStack(0);
 
     if (val1 == val2) {
-        std::cout << "GO TO instruction: " << label << std::endl;
         _speur->InstructionIndex = label;
     }
 }

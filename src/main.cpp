@@ -15,7 +15,7 @@ int main() {
         path = speur.Run();
     }
 
-    std::cout << "The secret message is:\n" << speur.GetSecretMessage();
+    std::cout << "\n\nThe secret message is:\n" << speur.GetSecretMessage();
 
     return 0;
 }

@@ -9,7 +9,6 @@ SubInstruction::SubInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void SubInstruction::Do() {
-    std::cout << "Sub instruction: " << std::endl;
     int val1 = stoi(_speur->RemoveFromStack(0));
     int val2 = stoi(_speur->RemoveFromStack(0));
 

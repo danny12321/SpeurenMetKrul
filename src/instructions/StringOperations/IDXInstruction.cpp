@@ -9,7 +9,6 @@ IDXInstruction::IDXInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void IDXInstruction::Do() {
-    std::cout << "IDX instruction: " << std::endl;
     int index = stoi(_speur->RemoveFromStack(0));
     std::string string = _speur->RemoveFromStack(0);
     std::string character = std::string(1, string.at(index));

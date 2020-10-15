@@ -9,7 +9,6 @@ SLCInstruction::SLCInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void SLCInstruction::Do() {
-    std::cout << "Slc instruction: " << std::endl;
     int to = stoi(_speur->RemoveFromStack(0));
     int from = stoi(_speur->RemoveFromStack(0));
 

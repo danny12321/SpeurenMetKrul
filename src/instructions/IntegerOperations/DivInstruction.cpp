@@ -9,7 +9,6 @@ DivInstruction::DivInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void DivInstruction::Do() {
-    std::cout << "Div instruction: " << std::endl;
     int val1 = stoi(_speur->RemoveFromStack(0));
     int val2 = stoi(_speur->RemoveFromStack(0));
 

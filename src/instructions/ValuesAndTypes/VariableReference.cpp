@@ -10,7 +10,6 @@ VariableReference::VariableReference(Speur *speur, std::string line) : BaseInstr
 
 void VariableReference::Do() {
     _line.erase(0, 1);
-    std::cout << "Variable Reference: " << _line << std::endl;
 
     _speur->Stack.push_back(_speur->Vars[_line]);
 }

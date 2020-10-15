@@ -9,7 +9,6 @@ RotInstruction::RotInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void RotInstruction::Do() {
-    std::cout << "Rot instruction: " << std::endl;
     std::string val = _speur->RemoveFromStack(0);
 
     _speur->Stack.push_back(ROT13(val));

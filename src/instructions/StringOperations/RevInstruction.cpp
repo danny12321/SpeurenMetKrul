@@ -9,7 +9,6 @@ RevInstruction::RevInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void RevInstruction::Do() {
-    std::cout << "Rev instruction: " << std::endl;
     std::string val = _speur->RemoveFromStack(0);
     std::reverse(val.begin(), val.end());
     _speur->Stack.push_back(val);

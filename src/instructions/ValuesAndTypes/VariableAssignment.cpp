@@ -10,7 +10,6 @@ VariableAssignment::VariableAssignment(Speur *speur, std::string line) : BaseIns
 
 void VariableAssignment::Do() {
     _line.erase(0, 1);
-    std::cout << "Variable Assignment: " << _line << std::endl;
 
     _speur->Vars[_line] = _speur->RemoveFromStack(0);
 }

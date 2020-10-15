@@ -11,6 +11,5 @@ TextInstruction::TextInstruction(Speur *speur, std::string line) : BaseInstructi
 void TextInstruction::Do() {
     _line.erase(0, 1);
 
-    std::cout << "Text instruction: " << _line << std::endl;
     _speur->Stack.push_back(_line);
 }

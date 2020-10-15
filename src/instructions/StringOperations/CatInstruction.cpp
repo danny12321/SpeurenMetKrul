@@ -9,7 +9,6 @@ CatInstruction::CatInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void CatInstruction::Do() {
-    std::cout << "Cat instruction: " << std::endl;
     std::string val1 = _speur->RemoveFromStack(0);
     std::string val2 = _speur->RemoveFromStack(0);
 
