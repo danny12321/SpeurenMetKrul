@@ -13,32 +13,21 @@ Speur::Speur(std::string url) {
 
 std::string Speur::Run() {
     std::unique_ptr<InstructionFactory> instruction_factory{new InstructionFactory(this)};
-    InstructionIndex = 0;
 
-    while (_instructions.size() > InstructionIndex) {
-        try {
-            std::string line = _instructions[InstructionIndex];
-            std::unique_ptr<BaseInstruction> instruction{instruction_factory->GetInstruction(line)};
-            instruction->Prepare();
-            InstructionIndex++;
-        } catch (const std::exception &err) {
-            std::cerr << err.what() << std::endl;
-            InstructionIndex++;
-        }
+    for (InstructionIndex = 0; InstructionIndex < _instructions.size(); InstructionIndex++) {
+        std::unique_ptr<BaseInstruction> instruction{
+                instruction_factory->GetInstruction(_instructions[InstructionIndex])};
+        instruction->Prepare();
     }
 
-    InstructionIndex = 0;
-    while (_instructions.size() > InstructionIndex) {
+    for (InstructionIndex = 0; InstructionIndex < _instructions.size(); InstructionIndex++) {
         try {
             std::string line = _instructions[InstructionIndex];
             std::unique_ptr<BaseInstruction> instruction{instruction_factory->GetInstruction(line)};
             instruction->Do();
-            InstructionIndex++;
         } catch (const std::exception &err) {
             std::cerr << err.what() << std::endl;
-            InstructionIndex++;
         }
-
     }
 
     return RemoveFromStack(0);
