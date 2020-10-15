@@ -4,51 +4,21 @@
 
 #include "Speur.hpp"
 
-void Speur::Init(std::string url) {
+Speur::Speur(std::string url) {
     std::cout << "Loading " << url << std::endl;
 
     CurlRequest req;
-    auto instructions = req.GetInstructions(url);
-    Run(instructions);
+    _instructions = req.GetInstructions(url);
 }
 
-void Speur::Print() {
-    std::cout << "------------------------------" << std::endl;
-    std::cout << "VARS" << std::endl;
-
-    for (auto const &imap: Vars)
-        std::cout << imap.first << ": " << imap.second << std::endl;
-
-    std::cout << "------------------------------" << std::endl;
-    std::cout << "Labels" << std::endl;
-
-    for (auto const &imap: Labels)
-        std::cout << imap.first << ": " << imap.second << std::endl;
-
-    std::cout << "------------------------------" << std::endl;
-    std::cout << "CALLSTACK:" << std::endl;
-
-    for (auto const &item: CallStack)
-        std::cout << item << std::endl;
-
-    std::cout << "------------------------------" << std::endl;
-    std::cout << "STACK:" << std::endl;
-
-    for (auto const &item: Stack)
-        std::cout << "> " << item << std::endl;
-
-}
-
-void Speur::Run(std::vector<std::string> instructions) {
+std::string Speur::Run() {
     std::unique_ptr<InstructionFactory> instruction_factory{new InstructionFactory(this)};
     InstructionIndex = 0;
 
-    std::cout << "Prepare: " << std::endl;
-    while (instructions.size() > InstructionIndex) {
+    while (_instructions.size() > InstructionIndex) {
         try {
-            std::string line = instructions[InstructionIndex];
+            std::string line = _instructions[InstructionIndex];
             std::unique_ptr<BaseInstruction> instruction{instruction_factory->GetInstruction(line)};
-
             instruction->Prepare();
             InstructionIndex++;
         } catch (const std::exception &err) {
@@ -57,14 +27,10 @@ void Speur::Run(std::vector<std::string> instructions) {
         }
     }
 
-    std::cout << "\n\n\n";
-
     InstructionIndex = 0;
-    std::cout << "Run: " << std::endl;
-    while (instructions.size() > InstructionIndex) {
+    while (_instructions.size() > InstructionIndex) {
         try {
-            std::string line = instructions[InstructionIndex];
-            std::cout << InstructionIndex << " --> " << line << std::endl;
+            std::string line = _instructions[InstructionIndex];
             std::unique_ptr<BaseInstruction> instruction{instruction_factory->GetInstruction(line)};
             instruction->Do();
             InstructionIndex++;
@@ -73,23 +39,9 @@ void Speur::Run(std::vector<std::string> instructions) {
             InstructionIndex++;
         }
 
-        Print();
-        std::cout << "\n\n\n\n" << std::endl;
     }
 
-    std::string url = baseurl + GetFromStack(0, true);
-    std::cout << "Found url:  " << url << std::endl;
-    system("pause");
-    Speur speur;
-    speur.Init(url);
-}
-
-std::string Speur::GetFromStack(int index, bool reverse) {
-    if (reverse) {
-        return Stack[Stack.size() - 1 - index];
-    } else {
-        return Stack[index];
-    }
+    return RemoveFromStack(0);
 }
 
 std::string Speur::RemoveFromStack(int index_from_last) {
@@ -102,10 +54,10 @@ std::string Speur::RemoveFromStack(int index_from_last) {
     }
 }
 
-int Speur::GetCurrentStackIndex() {
-    if (Stack.size() == 0) {
-        return 0;
-    }
+void Speur::SetSecretMessage(std::string message) {
+    _secret = message;
+}
 
-    return Stack.size() - 1;
+std::string Speur::GetSecretMessage() {
+    return _secret;
 }

@@ -16,6 +16,6 @@ void GLTInstruction::Do() {
 
     if (val1 > val2) {
         std::cout << "GO TO instruction: " << label << std::endl;
-        _speur->InstructionIndex = label - 1;
+        _speur->InstructionIndex = label;
     }
 }

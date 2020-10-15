@@ -13,20 +13,18 @@
 
 class Speur {
 private:
-    const std::string baseurl = "https://www.swiftcoder.nl/cpp1/";
+    std::string _secret;
+
+    std::vector<std::string> _instructions;
 
 public:
-    void Init(std::string instructions);
+    Speur(std::string url);
 
-    void Run(std::vector<std::string>);
-
-    int GetCurrentStackIndex();
+    std::string Run();
 
     int InstructionIndex = 0;
 
     std::string RemoveFromStack(int index_from_last);
-
-    std::string GetFromStack(int index, bool reverse);
 
     std::vector<std::string> Stack;
 
@@ -36,7 +34,10 @@ public:
 
     std::map<std::string, int> Labels;
 
-    void Print();
+
+    void SetSecretMessage(std::string message);
+
+    std::string GetSecretMessage();
 };
 
 #endif //SPEURENMETKRUL_SPEUR_HPP

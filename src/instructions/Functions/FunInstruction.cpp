@@ -13,7 +13,7 @@ void FunInstruction::Prepare(){
 
 void FunInstruction::Do() {
     std::cout << "Function: instruction" << std::endl;
-    _speur->CallStack.push_back(_speur->InstructionIndex + 1);
+    _speur->CallStack.push_back(_speur->InstructionIndex);
 
     GTOInstruction gto(_speur, "");
     gto.Do();

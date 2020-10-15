@@ -12,7 +12,8 @@ void SLCInstruction::Do() {
     std::cout << "Slc instruction: " << std::endl;
     int to = stoi(_speur->RemoveFromStack(0));
     int from = stoi(_speur->RemoveFromStack(0));
+
     std::string val = _speur->RemoveFromStack(0);
-    std::string sub = val.substr(from, (to - from - 1));
+    std::string sub = val.substr(from, (to - from));
     _speur->Stack.push_back(sub);
 }

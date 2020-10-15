@@ -13,5 +13,5 @@ void GTOInstruction::Do() {
     int label = stoi(_speur->RemoveFromStack(0));
     std::cout << label << std::endl;
 
-    _speur->InstructionIndex = label - 1;
+    _speur->InstructionIndex = label;
 }

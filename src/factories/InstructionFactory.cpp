@@ -43,6 +43,12 @@ BaseInstruction *InstructionFactory::GetInstruction(std::string instruction) {
     if (instruction == "len")   return new LenInstruction(_speur, instruction);
     if (instruction == "slc")   return new SLCInstruction(_speur, instruction);
     if (instruction == "inc")   return new IncInstruction(_speur, instruction);
+    if (instruction == "sub")   return new SubInstruction(_speur, instruction);
+    if (instruction == "neg")   return new NegInstruction(_speur, instruction);
+    if (instruction == "abs")   return new AbsInstruction(_speur, instruction);
+    if (instruction == "rot")   return new RotInstruction(_speur, instruction);
+    if (instruction == "enl")   return new EnlInstruction(_speur, instruction);
+    if (instruction == "end")   return new EndInstruction(_speur, instruction);
 
     std::cerr << "DONT KNOW " << instruction << " BUT WILL PUT IN ON THE TEXTINSTRUCTION" << std::endl;
     return new TextInstruction(_speur, "\\" + instruction);

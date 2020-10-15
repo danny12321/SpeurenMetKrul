@@ -3,20 +3,19 @@
 
 int main() {
     std::cout << "Start tracing the secret message!" << std::endl;
-    Speur speur;
-//    speur.Init("https://www.swiftcoder.nl/cpp1/start.txt");
-    speur.Init("https://www.swiftcoder.nl/cpp1/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.txt");
-    speur.Init("https://www.swiftcoder.nl/cpp1/4812-9-6727.txt");
 
-//    std::vector<std::string> instructions {
-//            "1",
-//            "2",
-//            "mul"
-//    };
-//    speur.Run(instructions);
+    std::string baseurl = "https://www.swiftcoder.nl/cpp1/";
+    std::string path = "start.txt";
 
-//    CurlRequest req;
-//    speur.Run(req.Test());
+    Speur speur = Speur(baseurl + path);
+    path = speur.Run();
+
+    while(speur.GetSecretMessage().empty()) {
+        speur = Speur(baseurl + path);
+        path = speur.Run();
+    }
+
+    std::cout << "The secret message is:\n" << speur.GetSecretMessage();
 
     return 0;
 }

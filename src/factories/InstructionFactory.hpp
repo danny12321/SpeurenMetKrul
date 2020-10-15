@@ -33,6 +33,12 @@
 #include "../instructions/StringOperations/LenInstruction.hpp"
 #include "../instructions/StringOperations/SLCInstruction.hpp"
 #include "../instructions/IntegerOperations/IncInstruction.hpp"
+#include "../instructions/IntegerOperations/SubInstruction.hpp"
+#include "../instructions/IntegerOperations/NegInstruction.hpp"
+#include "../instructions/IntegerOperations/AbsInstruction.hpp"
+#include "../instructions/StringOperations/RotInstruction.hpp"
+#include "../instructions/StringOperations/EnlInstruction.hpp"
+#include "../instructions/End/EndInstruction.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <string>

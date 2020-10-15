@@ -13,5 +13,5 @@ void RetInstruction::Do() {
 
     auto a = _speur->CallStack.back();
     _speur->CallStack.pop_back();
-    _speur->InstructionIndex = a - 1;
+    _speur->InstructionIndex = a;
 }
