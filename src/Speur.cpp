@@ -57,3 +57,17 @@ void Speur::SetSecretMessage(std::string message) {
 std::string Speur::GetSecretMessage() {
     return _secret;
 }
+
+int Speur::PopCallStack() {
+    if (_callStack.empty()) {
+        return -1;
+    } else {
+        int temp = _callStack.back();
+        _callStack.pop_back();
+        return temp;
+    }
+}
+
+void Speur::PushCallStack(int value) {
+    _callStack.push_back(value);
+}

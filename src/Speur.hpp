@@ -17,6 +17,9 @@ private:
 
     std::vector<std::string> _stack;
 
+    std::vector<int> _callStack;
+
+
 public:
     Speur(std::string url);
 
@@ -24,7 +27,6 @@ public:
 
     int InstructionIndex = 0;
 
-    std::vector<int> CallStack;
 
     std::map<std::string, std::string> Vars;
 
@@ -36,8 +38,10 @@ public:
     std::string GetSecretMessage();
 
     std::string PopStack();
-
     void PushStack(const std::string &value);
+
+    int PopCallStack();
+    void PushCallStack(int value);
 };
 
 #endif //SPEURENMETKRUL_SPEUR_HPP
