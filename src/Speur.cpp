@@ -2,8 +2,10 @@
 // Created by Danny on 5-10-2020.
 //
 
-#include <memory>
 #include "Speur.hpp"
+#include "factories/InstructionFactory.hpp"
+#include "CurlRequest.hpp"
+#include <memory>
 
 Speur::Speur(std::string url) {
     std::cout << "Loading " << url << std::endl;

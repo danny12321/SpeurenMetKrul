@@ -8,8 +8,6 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "factories/InstructionFactory.hpp"
-#include "CurlRequest.hpp"
 
 class Speur {
 private:
