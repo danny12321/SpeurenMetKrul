@@ -79,3 +79,11 @@ void Speur::SetVar(const std::string& key, const std::string& value) {
 std::string Speur::GetVar(const std::string &key) {
     return _vars[key];
 }
+
+void Speur::SetLabel(const std::string &key, const int &value) {
+    _labels[key] = value;
+}
+
+int Speur::GetLabel(const std::string &key) {
+    return _labels[key];
+}

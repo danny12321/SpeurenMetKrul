@@ -21,6 +21,8 @@ private:
 
     std::map<std::string, std::string> _vars;
 
+    std::map<std::string, int> _labels;
+
 public:
     Speur(std::string url);
 
@@ -29,7 +31,6 @@ public:
     int InstructionIndex = 0;
 
 
-    std::map<std::string, int> Labels;
 
 
     void SetSecretMessage(std::string message);
@@ -44,6 +45,9 @@ public:
 
     void SetVar(const std::string &key, const std::string &value);
     std::string GetVar(const std::string &key);
+
+    void SetLabel(const std::string &key, const int &value);
+    int GetLabel(const std::string &key);
 };
 
 #endif //SPEURENMETKRUL_SPEUR_HPP

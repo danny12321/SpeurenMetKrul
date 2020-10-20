@@ -14,5 +14,5 @@ void LabelDefinition::Do() {
 
 void LabelDefinition::Prepare() {
     _line.erase(0, 1);
-    _speur->Labels[_line] = _speur->InstructionIndex;
+    _speur->SetLabel(_line, _speur->InstructionIndex);
 }
