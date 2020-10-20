@@ -9,6 +9,5 @@ RetInstruction::RetInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void RetInstruction::Do() {
-    auto a = _speur->PopCallStack();
-    _speur->InstructionIndex = a;
+    _speur->SetInstructionIndex(_speur->PopCallStack());
 }

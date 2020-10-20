@@ -14,6 +14,6 @@ void GEQInstruction::Do() {
     std::string val2 = _speur->PopStack();
 
     if (val1 == val2) {
-        _speur->InstructionIndex = label;
+        _speur->SetInstructionIndex(label);
     }
 }

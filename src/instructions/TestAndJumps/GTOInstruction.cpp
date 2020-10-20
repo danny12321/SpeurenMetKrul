@@ -11,5 +11,5 @@ GTOInstruction::GTOInstruction(Speur *speur, std::string line) : BaseInstruction
 void GTOInstruction::Do() {
     int label = stoi(_speur->PopStack());
 
-    _speur->InstructionIndex = label;
+    _speur->SetInstructionIndex(label);
 }

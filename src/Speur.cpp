@@ -17,15 +17,15 @@ Speur::Speur(std::string url) {
 std::string Speur::Run() {
     std::unique_ptr<InstructionFactory> instruction_factory{new InstructionFactory(this)};
 
-    for (InstructionIndex = 0; InstructionIndex < _instructions.size(); InstructionIndex++) {
+    for (_instructionIndex = 0; _instructionIndex < _instructions.size(); _instructionIndex++) {
         std::unique_ptr<BaseInstruction> instruction{
-                instruction_factory->GetInstruction(_instructions[InstructionIndex])};
+                instruction_factory->GetInstruction(_instructions[_instructionIndex])};
         instruction->Prepare();
     }
 
-    for (InstructionIndex = 0; InstructionIndex < _instructions.size(); InstructionIndex++) {
+    for (_instructionIndex = 0; _instructionIndex < _instructions.size(); _instructionIndex++) {
         try {
-            std::string line = _instructions[InstructionIndex];
+            std::string line = _instructions[_instructionIndex];
             std::unique_ptr<BaseInstruction> instruction{instruction_factory->GetInstruction(line)};
             instruction->Do();
         } catch (const std::exception &err) {
@@ -48,14 +48,6 @@ std::string Speur::PopStack() {
 
 void Speur::PushStack(const std::string& value) {
     _stack.push_back(value);
-}
-
-void Speur::SetSecretMessage(std::string message) {
-    _secret = message;
-}
-
-std::string Speur::GetSecretMessage() {
-    return _secret;
 }
 
 int Speur::PopCallStack() {

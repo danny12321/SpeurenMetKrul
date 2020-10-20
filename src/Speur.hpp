@@ -23,19 +23,20 @@ private:
 
     std::map<std::string, int> _labels;
 
+    int _instructionIndex = 0;
+
+
 public:
     Speur(std::string url);
 
     std::string Run();
 
-    int InstructionIndex = 0;
+    inline int GetInstructionIndex() {return _instructionIndex;}
+    inline void SetInstructionIndex(int value) { _instructionIndex = value;}
 
+    inline std::string GetSecretMessage() {return _secret;};
+    inline void SetSecretMessage(std::string message) {_secret = message;};
 
-
-
-    void SetSecretMessage(std::string message);
-
-    std::string GetSecretMessage();
 
     std::string PopStack();
     void PushStack(const std::string &value);
