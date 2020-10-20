@@ -11,5 +11,5 @@ TextInstruction::TextInstruction(Speur *speur, std::string line) : BaseInstructi
 void TextInstruction::Do() {
     _line.erase(0, 1);
 
-    _speur->Stack.push_back(_line);
+    _speur->PushStack(_line);
 }

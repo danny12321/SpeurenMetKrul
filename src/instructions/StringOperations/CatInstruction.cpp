@@ -9,8 +9,8 @@ CatInstruction::CatInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void CatInstruction::Do() {
-    std::string val1 = _speur->RemoveFromStack(0);
-    std::string val2 = _speur->RemoveFromStack(0);
+    std::string val1 = _speur->PopStack();
+    std::string val2 = _speur->PopStack();
 
-    _speur->Stack.push_back(val2 + val1);
+    _speur->PushStack(val2 + val1);
 }

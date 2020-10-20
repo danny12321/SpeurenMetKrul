@@ -9,7 +9,7 @@ DupInstruction::DupInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void DupInstruction::Do() {
-    std::string val = _speur->RemoveFromStack(0);
-    _speur->Stack.push_back(val);
-    _speur->Stack.push_back(val);
+    std::string val = _speur->PopStack();
+    _speur->PushStack(val);
+    _speur->PushStack(val);
 }

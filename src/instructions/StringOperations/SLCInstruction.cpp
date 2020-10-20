@@ -9,10 +9,10 @@ SLCInstruction::SLCInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void SLCInstruction::Do() {
-    int to = stoi(_speur->RemoveFromStack(0));
-    int from = stoi(_speur->RemoveFromStack(0));
+    int to = stoi(_speur->PopStack());
+    int from = stoi(_speur->PopStack());
 
-    std::string val = _speur->RemoveFromStack(0);
+    std::string val = _speur->PopStack();
     std::string sub = val.substr(from, (to - from));
-    _speur->Stack.push_back(sub);
+    _speur->PushStack(sub);
 }

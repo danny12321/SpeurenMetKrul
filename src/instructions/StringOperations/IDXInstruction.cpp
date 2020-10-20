@@ -9,9 +9,9 @@ IDXInstruction::IDXInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void IDXInstruction::Do() {
-    int index = stoi(_speur->RemoveFromStack(0));
-    std::string string = _speur->RemoveFromStack(0);
+    int index = stoi(_speur->PopStack());
+    std::string string = _speur->PopStack();
     std::string character = std::string(1, string.at(index));
 
-    _speur->Stack.push_back(character);
+    _speur->PushStack(character);
 }

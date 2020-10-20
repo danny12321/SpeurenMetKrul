@@ -2,6 +2,7 @@
 // Created by Danny on 5-10-2020.
 //
 
+#include <memory>
 #include "Speur.hpp"
 
 Speur::Speur(std::string url) {
@@ -30,17 +31,21 @@ std::string Speur::Run() {
         }
     }
 
-    return RemoveFromStack(0);
+    return PopStack();
 }
 
-std::string Speur::RemoveFromStack(int index_from_last) {
-    if (Stack.size() > index_from_last) {
-        std::string temp = Stack[Stack.size() - 1 - index_from_last];
-        Stack.erase(Stack.begin() + Stack.size() - 1 - index_from_last);
-        return temp;
-    } else {
+std::string Speur::PopStack() {
+    if (_stack.empty()) {
         return "";
+    } else {
+        std::string temp = _stack.back();
+        _stack.pop_back();
+        return temp;
     }
+}
+
+void Speur::PushStack(const std::string& value) {
+    _stack.push_back(value);
 }
 
 void Speur::SetSecretMessage(std::string message) {

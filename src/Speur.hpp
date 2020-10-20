@@ -17,16 +17,14 @@ private:
 
     std::vector<std::string> _instructions;
 
+    std::vector<std::string> _stack;
+
 public:
     Speur(std::string url);
 
     std::string Run();
 
     int InstructionIndex = 0;
-
-    std::string RemoveFromStack(int index_from_last);
-
-    std::vector<std::string> Stack;
 
     std::vector<int> CallStack;
 
@@ -38,6 +36,10 @@ public:
     void SetSecretMessage(std::string message);
 
     std::string GetSecretMessage();
+
+    std::string PopStack();
+
+    void PushStack(const std::string &value);
 };
 
 #endif //SPEURENMETKRUL_SPEUR_HPP

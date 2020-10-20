@@ -9,6 +9,6 @@ EnlInstruction::EnlInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void EnlInstruction::Do() {
-    std::string val = _speur->RemoveFromStack(0);
-    _speur->Stack.push_back(val + "\n");
+    std::string val = _speur->PopStack();
+    _speur->PushStack(val + "\n");
 }

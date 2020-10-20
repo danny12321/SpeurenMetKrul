@@ -11,5 +11,5 @@ VariableReference::VariableReference(Speur *speur, std::string line) : BaseInstr
 void VariableReference::Do() {
     _line.erase(0, 1);
 
-    _speur->Stack.push_back(_speur->Vars[_line]);
+    _speur->PushStack(_speur->Vars[_line]);
 }

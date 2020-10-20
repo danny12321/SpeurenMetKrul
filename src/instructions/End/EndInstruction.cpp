@@ -9,5 +9,5 @@ EndInstruction::EndInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void EndInstruction::Do() {
-    _speur->SetSecretMessage(_speur->RemoveFromStack(0));
+    _speur->SetSecretMessage(_speur->PopStack());
 }

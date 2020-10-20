@@ -9,9 +9,9 @@ GLEInstruction::GLEInstruction(Speur *speur, std::string line) : BaseInstruction
 }
 
 void GLEInstruction::Do() {
-    int label = stoi(_speur->RemoveFromStack(0));
-    int val1 = stoi(_speur->RemoveFromStack(0));
-    int val2 = stoi(_speur->RemoveFromStack(0));
+    int label = stoi(_speur->PopStack());
+    int val1 = stoi(_speur->PopStack());
+    int val2 = stoi(_speur->PopStack());
 
     if (val1 >= val2) {
         _speur->InstructionIndex = label;
