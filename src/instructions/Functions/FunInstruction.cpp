@@ -3,6 +3,7 @@
 //
 
 #include "FunInstruction.hpp"
+#include "../TestAndJumps/GTOInstruction.hpp"
 
 FunInstruction::FunInstruction(Speur *speur, std::string line) : BaseInstruction(speur, line) {
 
