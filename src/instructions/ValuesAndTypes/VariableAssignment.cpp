@@ -11,5 +11,5 @@ VariableAssignment::VariableAssignment(Speur *speur, std::string line) : BaseIns
 void VariableAssignment::Do() {
     _line.erase(0, 1);
 
-    _speur->Vars[_line] = _speur->PopStack();
+    _speur->SetVar(_line, _speur->PopStack());
 }

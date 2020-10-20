@@ -71,3 +71,11 @@ int Speur::PopCallStack() {
 void Speur::PushCallStack(int value) {
     _callStack.push_back(value);
 }
+
+void Speur::SetVar(const std::string& key, const std::string& value) {
+    _vars[key] = value;
+}
+
+std::string Speur::GetVar(const std::string &key) {
+    return _vars[key];
+}
