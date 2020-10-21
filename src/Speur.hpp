@@ -31,24 +31,29 @@ public:
 
     std::string Run();
 
-    inline int GetInstructionIndex() {return _instructionIndex;}
-    inline void SetInstructionIndex(int value) { _instructionIndex = value;}
+    [[nodiscard]] inline int GetInstructionIndex() const { return _instructionIndex; }
 
-    inline std::string GetSecretMessage() {return _secret;};
-    inline void SetSecretMessage(std::string message) {_secret = message;};
+    inline void SetInstructionIndex(int value) { _instructionIndex = value; }
 
+    [[nodiscard]] inline std::string GetSecretMessage() const { return _secret; };
+
+    inline void SetSecretMessage(const std::string &message) { _secret = message; };
 
     std::string PopStack();
+
     void PushStack(const std::string &value);
 
     int PopCallStack();
+
     void PushCallStack(int value);
 
     void SetVar(const std::string &key, const std::string &value);
-    std::string GetVar(const std::string &key);
+
+    [[nodiscard]] std::string GetVar(const std::string &key);
 
     void SetLabel(const std::string &key, const int &value);
-    int GetLabel(const std::string &key);
+
+    [[nodiscard]] int GetLabel(const std::string &key);
 };
 
 #endif //SPEURENMETKRUL_SPEUR_HPP
