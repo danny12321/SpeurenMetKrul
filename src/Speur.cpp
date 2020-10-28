@@ -7,7 +7,7 @@
 #include "CurlRequest.hpp"
 #include <memory>
 
-Speur::Speur(std::string url) {
+Speur::Speur(const std::string& url) {
     std::cout << "Loading " << url << std::endl;
 
     CurlRequest req;

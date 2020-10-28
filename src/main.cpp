@@ -6,6 +6,7 @@ int main() {
 
     std::string baseurl = "https://www.swiftcoder.nl/cpp1/";
     std::string path = "start.txt";
+
     Speur speur = Speur(baseurl + path);
     path = speur.Run();
 
@@ -18,7 +19,7 @@ int main() {
     std::cout << "\n\n";
 
 
-//    int* numbers = new int[1000];
+    int* numbers = new int[1000];
 
     return 0;
 }

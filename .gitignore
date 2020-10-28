@@ -37,6 +37,7 @@ build/
 cmake-build-debug/
 cmake-build-release/
 cmake-build-wsl/
+cmake-build-debug-wsl/
 out/
 
 # IDE

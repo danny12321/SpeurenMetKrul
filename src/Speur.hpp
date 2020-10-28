@@ -27,7 +27,7 @@ private:
 
 
 public:
-    Speur(std::string url);
+    Speur(const std::string& url);
 
     std::string Run();
 
