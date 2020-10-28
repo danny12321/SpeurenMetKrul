@@ -7,19 +7,23 @@ int main() {
     std::string baseurl = "https://www.swiftcoder.nl/cpp1/";
     std::string path = "start.txt";
 
-    Speur speur = Speur(baseurl + path);
-    path = speur.Run();
-
-    while(speur.GetSecretMessage().empty()) {
-        speur = Speur(baseurl + path);
+    try {
+        Speur speur = Speur(baseurl + path);
         path = speur.Run();
+
+        while (speur.GetSecretMessage().empty()) {
+            speur = Speur(baseurl + path);
+            path = speur.Run();
+        }
+
+        std::cout << "\n\nThe secret message is:\n" << speur.GetSecretMessage();
+
+    } catch (const std::exception &e) {
+        std::cerr << "Program stopped because:" << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
-    std::cout << "\n\nThe secret message is:\n" << speur.GetSecretMessage();
-    std::cout << "\n\n";
-
-
-    int* numbers = new int[1000];
+//    int* numbers = new int[1000];
 
     return 0;
 }

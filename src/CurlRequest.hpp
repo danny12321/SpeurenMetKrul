@@ -17,7 +17,7 @@ private:
 public:
     std::string request(const std::string &url);
 
-    std::vector<std::string> GetInstructions(const std::string& url);
+    std::vector<std::string> GetInstructions(const std::string &url);
 };
 
 

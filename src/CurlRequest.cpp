@@ -46,7 +46,7 @@ std::string CurlRequest::request(const std::string &url) {
     return result;
 }
 
-std::vector<std::string> CurlRequest::GetInstructions(const std::string& url) {
+std::vector<std::string> CurlRequest::GetInstructions(const std::string &url) {
     std::vector<std::string> instructions;
     auto res = request(url);
 

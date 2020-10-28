@@ -27,31 +27,31 @@ private:
 
 
 public:
-    Speur(const std::string& url);
+    Speur(const std::string &url);
 
     std::string Run();
 
     [[nodiscard]] inline int GetInstructionIndex() const { return _instructionIndex; }
 
-    inline void SetInstructionIndex(int value) { _instructionIndex = value; }
+    inline void SetInstructionIndex(int value) noexcept { _instructionIndex = value; }
 
-    [[nodiscard]] inline std::string GetSecretMessage() const { return _secret; };
+    [[nodiscard]] inline std::string GetSecretMessage() const noexcept { return _secret; };
 
-    inline void SetSecretMessage(const std::string &message) { _secret = message; };
+    inline void SetSecretMessage(const std::string &message) noexcept { _secret = message; };
 
     std::string PopStack();
 
-    void PushStack(const std::string &value);
+    void PushStack(const std::string &value) noexcept;
 
     int PopCallStack();
 
-    void PushCallStack(int value);
+    void PushCallStack(int value) noexcept;
 
-    void SetVar(const std::string &key, const std::string &value);
+    void SetVar(const std::string &key, const std::string &value) noexcept;
 
     [[nodiscard]] std::string GetVar(const std::string &key);
 
-    void SetLabel(const std::string &key, const int &value);
+    void SetLabel(const std::string &key, const int &value) noexcept;
 
     [[nodiscard]] int GetLabel(const std::string &key);
 };

@@ -11,6 +11,7 @@
 class RotInstruction : public BaseInstruction {
 private:
     std::string ROT13(std::string source);
+
 public:
     RotInstruction(Speur *speur, std::string line);
 

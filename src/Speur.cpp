@@ -7,7 +7,7 @@
 #include "CurlRequest.hpp"
 #include <memory>
 
-Speur::Speur(const std::string& url) {
+Speur::Speur(const std::string &url) {
     std::cout << "Loading " << url << std::endl;
 
     CurlRequest req;
@@ -46,7 +46,7 @@ std::string Speur::PopStack() {
     }
 }
 
-void Speur::PushStack(const std::string& value) {
+void Speur::PushStack(const std::string &value) noexcept {
     _stack.push_back(value);
 }
 
@@ -60,11 +60,11 @@ int Speur::PopCallStack() {
     }
 }
 
-void Speur::PushCallStack(int value) {
+void Speur::PushCallStack(int value) noexcept {
     _callStack.push_back(value);
 }
 
-void Speur::SetVar(const std::string& key, const std::string& value) {
+void Speur::SetVar(const std::string &key, const std::string &value) noexcept {
     _vars[key] = value;
 }
 
@@ -72,7 +72,7 @@ std::string Speur::GetVar(const std::string &key) {
     return _vars[key];
 }
 
-void Speur::SetLabel(const std::string &key, const int &value) {
+void Speur::SetLabel(const std::string &key, const int &value) noexcept {
     _labels[key] = value;
 }
 

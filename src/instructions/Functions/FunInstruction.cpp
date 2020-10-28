@@ -9,7 +9,7 @@ FunInstruction::FunInstruction(Speur *speur, std::string line) : BaseInstruction
 
 }
 
-void FunInstruction::Prepare(){
+void FunInstruction::Prepare() {
 }
 
 void FunInstruction::Do() {
