@@ -23,7 +23,5 @@ int main() {
         std::cerr << e.what() << std::endl;
     }
 
-//    int* numbers = new int[1000];
-
     return 0;
 }

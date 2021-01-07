@@ -51,7 +51,7 @@ public:
 
     [[nodiscard]] std::string GetVar(const std::string &key);
 
-    void SetLabel(const std::string &key, const int &value) noexcept;
+    void SetLabel(const std::string &key, int value) noexcept;
 
     [[nodiscard]] int GetLabel(const std::string &key);
 };

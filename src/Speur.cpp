@@ -72,7 +72,7 @@ std::string Speur::GetVar(const std::string &key) {
     return _vars[key];
 }
 
-void Speur::SetLabel(const std::string &key, const int &value) noexcept {
+void Speur::SetLabel(const std::string &key, int value) noexcept {
     _labels[key] = value;
 }
 
